@@ -34,14 +34,22 @@
   <div style="font-family:'IBM Plex Mono';font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:18px">Get in touch</div>
   <h1 data-h1="" style="font-family:'Bricolage Grotesque';font-weight:700;line-height:1.05;letter-spacing:-0.025em;font-size:46px;margin:0 0 18px">Tell me what you're dealing with</h1>
   <p style="font-size:18px;line-height:1.6;color:var(--ink-2);margin:0 0 36px;max-width:56ch">I work part-time with technology and healthcare companies, embedded with the finance team. Tell me what you're dealing with and I'll tell you if I can help.</p>
-  <form action="FORM_ENDPOINT_HERE" method="POST" style="background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:32px">
+  <form id="sc-form" action="https://formspree.io/f/xoeaewvg" method="POST" style="background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:32px">
     <label style="display:block;margin-bottom:16px"><span style="display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:8px">Name</span><input name="name" type="text" required style="width:100%;border:1px solid var(--line);border-radius:11px;padding:13px 14px;font-size:15px;background:var(--bg);color:var(--ink)"></label><label style="display:block;margin-bottom:16px"><span style="display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:8px">Email</span><input name="email" type="email" required style="width:100%;border:1px solid var(--line);border-radius:11px;padding:13px 14px;font-size:15px;background:var(--bg);color:var(--ink)"></label><label style="display:block;margin-bottom:16px"><span style="display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:8px">Company</span><input name="company" type="text" required style="width:100%;border:1px solid var(--line);border-radius:11px;padding:13px 14px;font-size:15px;background:var(--bg);color:var(--ink)"></label>
     <label style="display:block;margin-bottom:16px"><span style="display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:8px">What's going on?</span>
       <textarea name="message" rows="5" required style="width:100%;border:1px solid var(--line);border-radius:11px;padding:13px 14px;font-size:15px;background:var(--bg);color:var(--ink);resize:vertical;font-family:inherit"></textarea></label>
-    <button type="submit" style="background:var(--accent);color:#fff;border:none;border-radius:999px;padding:15px 34px;font-size:16px;font-weight:600;cursor:pointer">Send</button>
+    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+    <button id="sc-send" type="submit" style="background:var(--accent);color:#fff;border:none;border-radius:999px;padding:15px 34px;font-size:16px;font-weight:600;cursor:pointer">Send</button>
+    <p id="sc-error" role="alert" style="display:none;font-size:14px;color:#B3261E;margin:14px 0 0"></p>
   </form>
+  <div id="sc-thanks" style="display:none;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:44px;text-align:center">
+    <div style="width:56px;height:56px;border-radius:50%;background:var(--accent-wash);display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 20px">&#128233;</div>
+    <h2 style="font-family:'Bricolage Grotesque';font-weight:600;font-size:26px;letter-spacing:-0.015em;margin:0 0 10px">Thanks.</h2>
+    <p style="font-size:17px;color:var(--ink-2);margin:0">I'll get back to you within a day.</p>
+  </div>
   <p style="font-size:14px;color:var(--muted);margin:18px 0 0">Prefer email? <a href="mailto:mike@seacloudconsulting.com">mike@seacloudconsulting.com</a></p>
 </section>
+<script src="../assets/form.js" defer></script>
 </main>
 <footer style="border-top:1px solid var(--line);background:var(--surface)">
   <div data-sec="" style="max-width:1180px;margin:0 auto;padding:30px 40px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
