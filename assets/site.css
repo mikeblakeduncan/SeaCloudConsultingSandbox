@@ -228,6 +228,10 @@ a:hover{color:var(--ink)}
 .prose pre code{background:none;color:inherit;padding:0}
 .prose table{width:100%;border-collapse:collapse;margin:0 0 18px;font-size:15px}
 .prose th,.prose td{border:1px solid var(--line);padding:9px 12px;text-align:left}
+/* Hero: inset the card content further on wide screens so the headline sits
+   closer to the photo. Below this the text column gets too narrow and the
+   headline gains lines, so the default 40px padding stands. */
+@media (min-width:1280px){[data-hero-card]{padding:44px 72px 36px!important}}
 /* Hero photo: tinted to sit with the palette, going full colour on hover.
    The SPA drove this from React state; CSS alone does it here. */
 [data-hero-art] img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.55) contrast(1.02);transition:filter .4s ease}
