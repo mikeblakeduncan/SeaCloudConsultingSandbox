@@ -217,7 +217,8 @@ a:hover{color:var(--ink)}
 .prose p{margin:0 0 18px}
 .prose ul,.prose ol{margin:0 0 18px;padding-left:22px}
 .prose li{margin:0 0 8px}
-.prose img{max-width:100%;height:auto;border-radius:14px;display:block;margin:24px 0}
+/* Inset inline article images and never upscale them past their natural size. */
+.prose img{max-width:min(100%,555px);height:auto;border-radius:14px;display:block;margin:26px auto}
 .prose figure{margin:24px 0}
 .prose figcaption{font-size:14px;color:var(--muted);margin-top:8px}
 .prose blockquote{margin:24px 0;padding:4px 0 4px 20px;border-left:3px solid var(--accent-2);color:var(--ink-2);font-style:italic}
