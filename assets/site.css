@@ -228,6 +228,15 @@ a:hover{color:var(--ink)}
 .prose pre code{background:none;color:inherit;padding:0}
 .prose table{width:100%;border-collapse:collapse;margin:0 0 18px;font-size:15px}
 .prose th,.prose td{border:1px solid var(--line);padding:9px 12px;text-align:left}
+/* Hero photo: tinted to sit with the palette, going full colour on hover.
+   The SPA drove this from React state; CSS alone does it here. */
+[data-hero-art] img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.55) contrast(1.02);transition:filter .4s ease}
+[data-hero-art] .tint,[data-hero-art] .shade{position:absolute;inset:0;opacity:.62;transition:opacity .4s ease;pointer-events:none}
+[data-hero-art] .tint{background:var(--accent);mix-blend-mode:color}
+[data-hero-art] .shade{background:linear-gradient(180deg,color-mix(in srgb,var(--ink) 12%,transparent) 40%,color-mix(in srgb,var(--ink) 70%,transparent))}
+[data-hero-art]:hover img{filter:none}
+[data-hero-art]:hover .tint,[data-hero-art]:hover .shade{opacity:0}
+@media (prefers-reduced-motion:reduce){[data-hero-art] img,[data-hero-art] .tint,[data-hero-art] .shade{transition:none}}
 .postcard{display:block;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;color:inherit}
 .postcard:hover{border-color:var(--accent-2);color:inherit}
 .postcard img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
