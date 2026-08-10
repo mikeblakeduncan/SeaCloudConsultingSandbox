@@ -228,6 +228,15 @@ a:hover{color:var(--ink)}
 .prose pre code{background:none;color:inherit;padding:0}
 .prose table{width:100%;border-collapse:collapse;margin:0 0 18px;font-size:15px}
 .prose th,.prose td{border:1px solid var(--line);padding:9px 12px;text-align:left}
+/* Announcement bar. Cool, on-palette background so it does not compete with
+   the hero card beneath it; the single yellow accent is confined to the badge,
+   which is what carries the "new" signal. */
+.tb-badge{background:#E6B93C;color:var(--ink);font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:3px 9px;border-radius:999px;white-space:nowrap;flex:none}
+.tb-cta{background:var(--accent);color:#fff;font-size:13px;font-weight:600;padding:7px 15px;border-radius:999px;white-space:nowrap;flex:none;transition:background .2s ease}
+[data-topbar]:hover .tb-cta{background:var(--ink)}
+@media (max-width:860px){
+  [data-topbar] > div{padding:10px 22px!important;gap:9px!important;font-size:13.5px!important}
+}
 /* Hero: inset the card content further on wide screens so the headline sits
    closer to the photo. Below this the text column gets too narrow and the
    headline gains lines, so the default 40px padding stands. */
