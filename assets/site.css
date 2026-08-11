@@ -228,6 +228,39 @@ a:hover{color:var(--ink)}
 .prose pre code{background:none;color:inherit;padding:0}
 .prose table{width:100%;border-collapse:collapse;margin:0 0 18px;font-size:15px}
 .prose th,.prose td{border:1px solid var(--line);padding:9px 12px;text-align:left}
+/* ---- mobile fixes ---- */
+@media (max-width:860px){
+  /* Nav links were hidden here with no menu to replace them, so Services, Blog
+     and About were only reachable by scrolling to the footer. They wrap onto a
+     second header row instead, which needs no JavaScript. */
+  header [data-sec]{flex-wrap:wrap;padding:12px 22px!important;gap:12px!important}
+  header [data-sec] > a:last-of-type{margin-left:auto!important}
+  [data-nav-links]{display:flex!important;order:3;width:100%;margin-left:0!important;
+    justify-content:center;gap:26px!important;padding-top:10px;border-top:1px solid var(--line)}
+  [data-nav-links] a{padding:9px 0!important;font-size:15px!important}
+  /* Logo and CTA missed sharing a row by 11px, which pushed the header to three
+     rows and 21% of a phone screen while sticky. Trimmed to fit on two. */
+  header [data-sec] > a:first-of-type span{font-size:15px!important}
+  header [data-sec] > a:first-of-type img{width:32px!important;height:32px!important}
+  header [data-sec] > a:last-of-type{padding:9px 16px!important;font-size:13.5px!important}
+  /* iOS Safari zooms the whole page when a focused field is under 16px. */
+  input,textarea,select{font-size:16px!important}
+}
+/* Carousel controls. The dots are 8px visually but carry a 40px invisible hit
+   area, since an 8px tap target is unusable on a phone. */
+.sc-dot{position:relative;width:8px;height:8px;padding:0;border:0;border-radius:50%;background:var(--line);cursor:pointer}
+.sc-dot.is-active{background:var(--ink)}
+.sc-dot::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px}
+@media (max-width:860px){
+  /* Arrows were hidden here on the assumption that swiping would do, but a
+     swipe has no affordance and the dots alone are too small to hit. They come
+     back overlaid on the card so the layout does not lose width to them. */
+  [data-carousel-btn]{display:flex!important;align-items:center;justify-content:center;position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:40px!important;height:40px!important;background:color-mix(in srgb,var(--surface) 92%,transparent)!important;box-shadow:0 1px 6px rgba(0,0,0,.14)}
+  [data-carousel-grid]{position:relative}
+  #sc-prev{left:-4px}
+  #sc-next{right:-4px}
+  #sc-dots{gap:18px!important}
+}
 /* Announcement bar. Cool, on-palette background so it does not compete with
    the hero card beneath it; the single yellow accent is confined to the badge,
    which is what carries the "new" signal. */

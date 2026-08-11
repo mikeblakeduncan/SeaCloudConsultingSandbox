@@ -3,7 +3,7 @@
   var cards=track.children,dots=[].slice.call(document.querySelectorAll('.sc-dot')),
       count=document.getElementById('sc-count'),i=0,sx=0;
   function render(){track.style.transform='translateX(-'+(i*100)+'%)';
-    dots.forEach(function(d,n){d.style.background=n===i?'var(--ink)':'var(--line)';});
+    dots.forEach(function(d,n){d.classList.toggle('is-active',n===i);});
     if(count)count.textContent=(i+1)+' / '+cards.length;}
   function go(n){i=(n+cards.length)%cards.length;render();}
   document.getElementById('sc-next').addEventListener('click',function(){go(i+1);});
