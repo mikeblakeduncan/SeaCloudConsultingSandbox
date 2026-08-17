@@ -283,6 +283,48 @@ a:hover{color:var(--ink)}
 [data-hero-art]:hover img{filter:none}
 [data-hero-art]:hover .tint,[data-hero-art]:hover .shade{opacity:0}
 @media (prefers-reduced-motion:reduce){[data-hero-art] img,[data-hero-art] .tint,[data-hero-art] .shade{transition:none}}
+/* Blog archive. Card images ran the full column width, so twenty posts took a
+   dozen screens to scroll. The archive is a list with thumbnails instead, and
+   the chips above it show at a glance how much sits under each topic. */
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin:0}
+.chip{font-family:'IBM Plex Mono';font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-2);background:var(--surface);border:1px solid var(--line);border-radius:999px;
+  padding:8px 14px;cursor:pointer;line-height:1;display:inline-flex;align-items:center;gap:8px;
+  transition:border-color .15s ease,color .15s ease,background .15s ease}
+.chip:hover{border-color:var(--accent-2);color:var(--ink)}
+.chip.is-on{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip-n{font-size:11px;opacity:.6}
+.postrow{display:flex;gap:20px;align-items:flex-start;padding:20px 0;border-top:1px solid var(--line);color:inherit}
+.postrow:first-child{border-top:0}
+.postrow[hidden]{display:none}
+.postrow:hover{color:inherit}
+.postrow:hover .pr-title{color:var(--accent)}
+.pr-thumb{flex:none;width:104px;height:78px;border-radius:10px;overflow:hidden;background:var(--accent-wash);display:block}
+.pr-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.pr-body{flex:1 1 auto;min-width:0;display:block}
+.pr-meta{display:flex;align-items:center;gap:10px;margin-bottom:7px;flex-wrap:wrap}
+.pr-cat{font-family:'IBM Plex Mono';font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);background:var(--accent-wash);border-radius:999px;padding:3px 9px;line-height:1.5}
+.pr-date{font-family:'IBM Plex Mono';font-size:11.5px;letter-spacing:.06em;color:var(--muted)}
+.pr-title{display:block;font-family:'Bricolage Grotesque';font-weight:600;font-size:19px;line-height:1.3;
+  letter-spacing:-0.01em;color:var(--ink);margin-bottom:5px;transition:color .15s ease}
+.pr-ex{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  font-size:14.5px;line-height:1.5;color:var(--muted)}
+@media (max-width:860px){
+  .postrow{gap:14px;padding:16px 0}
+  .pr-thumb{width:76px;height:57px}
+  .pr-title{font-size:16.5px}
+  /* One line of excerpt on a phone. Wrapped over six lines the summaries cost
+     more scrolling than they saved, which is the problem being fixed here. */
+  .pr-ex{font-size:13.5px;-webkit-line-clamp:1}
+  /* Six chips wrapped to four rows and pushed the first post off the screen.
+     They scroll sideways instead, bleeding to the edge so that reads as
+     scrollable rather than clipped. */
+  .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;
+    margin:0 -22px;padding:2px 22px;gap:8px}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:none;font-size:11px;padding:9px 13px}
+}
 .postcard{display:block;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;color:inherit}
 .postcard:hover{border-color:var(--accent-2);color:inherit}
 .postcard img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
