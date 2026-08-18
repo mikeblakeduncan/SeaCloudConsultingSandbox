@@ -16,3 +16,11 @@ https://mikeblakeduncan.github.io/SeaCloudConsultingSite/
 
 Neither site is on the live domain yet. Every page carries `noindex` and
 `robots.txt` disallows crawling until the DNS cutover.
+
+## This repository is generated
+
+The HTML here is build output. It is produced by the generator at
+`C:\Users\mikeb\AI projects\website\site-generator` and is overwritten by the
+next build, so editing a page in this repo will not survive. Change `pages.py`
+or `build_site.py` there instead, rebuild, and deploy with
+`python deploy.py sandbox` or `python deploy.py production`.
