@@ -248,6 +248,13 @@ a:hover{color:var(--ink)}
 }
 /* Carousel controls. The dots are 8px visually but carry a 40px invisible hit
    area, since an 8px tap target is unusable on a phone. */
+/* Engagements: two cards at a time on a desktop, one on a phone. The track is
+   a real scroller with snap points, so it can be swiped or scrolled even if the
+   script never loads, and the arrows and dots move it a page at a time. */
+#sc-track{scrollbar-width:none;-ms-overflow-style:none}
+#sc-track::-webkit-scrollbar{display:none}
+.eng-card{flex:0 0 calc(50% - 10px);scroll-snap-align:start}
+@media (max-width:860px){.eng-card{flex:0 0 100%}}
 .sc-dot{position:relative;width:8px;height:8px;padding:0;border:0;border-radius:50%;background:var(--line);cursor:pointer}
 .sc-dot.is-active{background:var(--ink)}
 .sc-dot::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px}
